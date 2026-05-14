@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPB Anatomy — Surgical Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="../../assets/js/nav.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #f5f0e8;
+    --warm-white: #faf8f4;
+    --accent: #b85c2a;
+    --accent-light: #e8c5a8;
+    --accent-muted: #f0ddd0;
+    --steel: #4a5568;
+    --rule: #d4c9b8;
+    --highlight: #fff3b0;
+    --danger: #c0392b;
+    --safe: #27ae60;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 40px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: 'HPB';
+    font-family: var(--serif);
+    font-size: 180px;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .tag-line {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+  .meta-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .meta-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    color: rgba(255,255,255,0.6);
+  }
+  .meta-pill span { color: var(--accent-light); }
+
+  /* NAV TABS */
+  .tab-nav {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    overflow-x: auto;
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 0;
+  }
+  .tab-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--steel);
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { color: var(--accent); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* MAIN LAYOUT */
+  .main { max-width: 900px; margin: 0 auto; padding: 40px; }
+
+  .section { display: none; }
+  .section.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* TYPOGRAPHY */
+  .section-title {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--ink);
+  }
+  .section-intro {
+    color: var(--steel);
+    font-size: 15px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 32px 0 12px;
+    color: var(--ink);
+  }
+  h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 20px 0 8px;
+  }
+  p { margin-bottom: 14px; font-size: 15px; }
+
+  /* CARDS */
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .badge-danger { background: #fde8e6; color: var(--danger); }
+  .badge-safe { background: #e6f4eb; color: var(--safe); }
+  .badge-warn { background: #fef9e7; color: #b7860b; }
+
+  /* LAYERS */
+  .layer-stack { margin: 16px 0; }
+  .layer {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 3px;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  .layer:hover { transform: translateX(4px); }
+  .layer-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    color: var(--paper);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+  .layer-content {
+    flex: 1;
+    padding: 10px 16px;
+    border: 1px solid var(--rule);
+    border-left: none;
+    background: var(--warm-white);
+  }
+  .layer-name { font-weight: 500; font-size: 14px; margin-bottom: 2px; }
+  .layer-detail {
+    font-size: 13px;
+    color: var(--steel);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .layer.open .layer-detail { max-height: 100px; }
+  .layer-indicator {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    margin-left: 8px;
+  }
+
+  /* STRUCTURES GRID */
+  .struct-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .struct-card {
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  .struct-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .struct-header {
+    padding: 10px 14px;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .struct-body {
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--steel);
+    line-height: 1.5;
+    display: none;
+    background: var(--warm-white);
+  }
+  .struct-card.open .struct-body { display: block; }
+
+  /* DANGER ZONES */
+  .danger-box {
+    border-left: 3px solid var(--danger);
+    background: #fdf6f5;
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .danger-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--danger);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .danger-box p { margin: 0; font-size: 14px; }
+
+  .tip-box {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-muted);
+    padding: 14px 18px;
+    margin: 12px 0;
+    border-radius: 0 3px 3px 0;
+  }
+  .tip-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .tip-box p { margin: 0; font-size: 14px; }
+
+  /* QUIZ */
+  .quiz-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .quiz-q {
+    padding: 18px 22px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .quiz-q .q-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent-light);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .quiz-options { padding: 16px 22px; background: var(--warm-white); display: flex; flex-direction: column; gap: 8px; }
+  .quiz-opt {
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.15s;
+    background: white;
+  }
+  .quiz-opt:hover { border-color: var(--accent); background: var(--accent-muted); }
+  .quiz-opt.correct { background: #e6f4eb; border-color: var(--safe); color: var(--safe); font-weight: 500; }
+  .quiz-opt.wrong { background: #fde8e6; border-color: var(--danger); color: var(--danger); }
+  .quiz-opt.disabled { pointer-events: none; }
+  .quiz-explain {
+    padding: 14px 22px;
+    background: #fff;
+    border-top: 1px solid var(--rule);
+    font-size: 14px;
+    color: var(--steel);
+    display: none;
+    line-height: 1.6;
+  }
+  .quiz-explain.visible { display: block; }
+  .score-bar {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .score-num { font-size: 28px; color: var(--accent); font-weight: 500; }
+
+  /* ANKI */
+  .anki-section { margin-top: 12px; }
+  .anki-card {
+    background: var(--warm-white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .anki-front {
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .anki-front:hover { background: var(--accent-muted); }
+  .anki-back {
+    padding: 12px 18px;
+    font-size: 13px;
+    color: var(--steel);
+    border-top: 1px dashed var(--rule);
+    background: white;
+    display: none;
+    line-height: 1.6;
+  }
+  .anki-card.flipped .anki-back { display: block; }
+  .flip-icon { font-family: var(--mono); font-size: 11px; color: var(--accent); }
+  .copy-btn {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 10px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+    letter-spacing: 0.06em;
+    margin-top: 8px;
+    transition: background 0.15s;
+  }
+  .copy-btn:hover { background: var(--accent); }
+  .copy-all-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 10px 20px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.15s;
+  }
+  .copy-all-btn:hover { background: var(--ink); }
+
+  /* VARIANT TABLE */
+  .variant-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  .variant-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 8px 14px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .variant-table td { padding: 10px 14px; border-bottom: 1px solid var(--rule); }
+  .variant-table tr:last-child td { border-bottom: none; }
+  .variant-table tr:hover td { background: var(--accent-muted); }
+  .freq { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .masthead { padding: 32px 20px; }
+    .tab-nav { padding: 0 8px; }
+    .main { padding: 24px 20px; }
+    .struct-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<script>
+  // Inject shared sidebar nav — "hpb-anatomy" highlights this guide as active
+  document.addEventListener("DOMContentLoaded", () => injectNav("hpb-anatomy"));
+</script>
+
+<nav style="background:#faf8f4;border-bottom:1px solid #d4c9b8;padding:10px 40px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#4a5568;display:flex;gap:6px;align-items:center;">
+  <a href="../../index.html" style="color:#b85c2a;text-decoration:none;">Dashboard</a>
+  <span>›</span><span>Anatomy</span><span>›</span><span style="color:#1a1a1a">HPB Anatomy</span>
+</nav>
+
+<div class="masthead">
+  <div class="tag-line">Surgical Study Guide · General Surgery · Foundations</div>
+  <h1>Hepatobiliary <em>& Biliary</em><br>Surgical Anatomy</h1>
+  <div class="meta-row">
+    <div class="meta-pill">Priority: <span>High</span></div>
+    <div class="meta-pill">Procedures: <span>Cholecystectomy · Hepatectomy · Whipple</span></div>
+    <div class="meta-pill">Source: <span>Gray's · Skandalakis · Last's</span></div>
+  </div>
+</div>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="showTab('layers')">Layers</button>
+  <button class="tab-btn" onclick="showTab('structures')">Key Structures</button>
+  <button class="tab-btn" onclick="showTab('variants')">Variants</button>
+  <button class="tab-btn" onclick="showTab('danger')">Danger Zones</button>
+  <button class="tab-btn" onclick="showTab('quiz')">Self-test</button>
+  <button class="tab-btn" onclick="showTab('anki')">Anki cards</button>
+</nav>
+
+<div class="main">
+
+  <!-- OVERVIEW -->
+  <div class="section active" id="sec-overview">
+    <h2 class="section-title">Why HPB anatomy matters</h2>
+    <p class="section-intro">The hepatobiliary region is one of the most anatomically treacherous in surgery. Failure to understand it causes bile duct injuries — one of the most devastating complications in general surgery. Master this before your first HPB rotation.</p>
+
+    <h3>The three spaces you must own</h3>
+
+    <div class="card">
+      <div class="card-title">Calot's Triangle <span class="badge badge-danger">Critical</span></div>
+      <p>The operative triangle bounded by the cystic duct (inferiorly), the common hepatic duct (medially), and the inferior surface of the liver (superiorly). The cystic artery runs within or near this triangle in most patients — but critically, the anatomy here varies in up to 24% of individuals.</p>
+      <p><strong>Critical view of safety (CVS)</strong>: The modern standard before dividing any structure in laparoscopic cholecystectomy. Two criteria must be met: (1) the hepatocystic triangle is cleared of fat and fibrous tissue, and (2) the lower third of the gallbladder is separated from the liver bed, so only two structures are seen entering the gallbladder.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Hepatoduodenal Ligament <span class="badge badge-danger">Critical</span></div>
+      <p>The free edge of the lesser omentum — the key surgical highway of the abdomen. Contains the portal triad: portal vein (posterior), hepatic artery (left anterior), and common bile duct (right anterior). Remember <strong>VAN</strong> from posterior to anterior: Vein, Artery, Nerve/duct — though the duct's relationship with the artery varies.</p>
+      <p>The Pringle manoeuvre compresses this ligament between finger and thumb to control hepatic inflow during liver surgery.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Lesser Sac (Omental Bursa) <span class="badge badge-warn">Important</span></div>
+      <p>The potential space posterior to the stomach and lesser omentum. Entered through the Foramen of Winslow (bounded by: hepatoduodenal ligament anteriorly, IVC posteriorly, liver superiorly, duodenum inferiorly). Surgically accessed for posterior gastric, splenic, and pancreatic body/tail operations. Pseudocysts from pancreatitis collect here.</p>
+    </div>
+
+    <h3>Couinaud's Segmental Anatomy</h3>
+    <p>The liver is divided into 8 functional segments based on portal pedicles and hepatic veins. Each segment has its own vascular inflow (portal vein + hepatic artery branch) and outflow (hepatic vein). This is the basis for anatomical hepatic resection — you can remove any segment or combination while preserving the rest.</p>
+
+    <div class="card">
+      <div class="card-title">The 3 hepatic veins — your surgical planes</div>
+      <p><strong>Right hepatic vein</strong>: divides right lobe into anterior (V, VIII) and posterior (VI, VII) sectors.<br>
+      <strong>Middle hepatic vein</strong>: the true anatomical midplane dividing left and right lobes. Runs in the principal plane (Cantlie's line) from gallbladder fossa to IVC.<br>
+      <strong>Left hepatic vein</strong>: divides left lobe into medial (IV) and lateral (II, III) sectors.</p>
+      <p>Segment I (caudate lobe) is unique — it drains directly into the IVC via multiple small veins and has dual portal supply. It's preserved or sacrificed based on these independent connections.</p>
+    </div>
+  </div>
+
+  <!-- LAYERS -->
+  <div class="section" id="sec-layers">
+    <h2 class="section-title">Surgical access layers</h2>
+    <p class="section-intro">Click each layer to reveal surgical detail. Understanding the layers you cut through — and what's at risk at each level — is what separates a surgeon from a medical officer.</p>
+
+    <h3>Right subcostal (Kocher) incision — open HPB surgery</h3>
+    <div class="layer-stack" id="layers-kocher"></div>
+
+    <h3>Port placement — laparoscopic cholecystectomy</h3>
+    <div class="card">
+      <div class="card-title">Standard 4-port technique</div>
+      <p><strong>10mm umbilical port</strong>: Camera port. Insert Hassan or Veress depending on prior surgery history. Risk of preperitoneal placement if technique is poor.</p>
+      <p><strong>5mm epigastric port</strong>: Liver retractor. Place to the right of falciform to avoid inferior epigastric vessels and minimise liver injury.</p>
+      <p><strong>5mm right flank port</strong>: Working port for dissection. Place in midclavicular line level with umbilicus.</p>
+      <p><strong>5mm anterior axillary port</strong>: Gallbladder retraction. Most lateral port — keep it lateral enough to allow fundus-first retraction.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Operative tip</div>
+      <p>In laparoscopic cholecystectomy, retract the gallbladder fundus superiorly and laterally — not just cephalad. This opens Calot's triangle and aligns the cystic duct perpendicular to the CBD, reducing the risk of misidentification.</p>
+    </div>
+  </div>
+
+  <!-- STRUCTURES -->
+  <div class="section" id="sec-structures">
+    <h2 class="section-title">Key structures</h2>
+    <p class="section-intro">Click any structure to expand surgical detail. These are the structures you will encounter, misidentify, or inadvertently divide. Know them cold.</p>
+    <div class="struct-grid" id="struct-grid"></div>
+  </div>
+
+  <!-- VARIANTS -->
+  <div class="section" id="sec-variants">
+    <h2 class="section-title">Anatomical variants</h2>
+    <p class="section-intro">Variants are not rare — they are expected. The surgeon who is surprised by variant anatomy has not prepared sufficiently. Know the frequency and the consequence of each.</p>
+
+    <h3>Biliary variants</h3>
+    <table class="variant-table">
+      <thead><tr><th>Variant</th><th>Frequency</th><th>Surgical consequence</th></tr></thead>
+      <tbody>
+        <tr><td>Normal biliary anatomy (right + left hepatic → CHD → CBD)</td><td class="freq">~57%</td><td>Standard anatomy — still confirm CVS before clipping</td></tr>
+        <tr><td>Low cystic duct insertion (joining CBD near duodenum)</td><td class="freq">~17%</td><td>Risk of inadvertent CBD division if not traced distally</td></tr>
+        <tr><td>Cystic duct running parallel to CBD (medial)</td><td class="freq">~12%</td><td>Highest risk configuration — "parallel duct sign" — most common cause of bile duct injury</td></tr>
+        <tr><td>Aberrant right hepatic duct draining into cystic duct</td><td class="freq">~3%</td><td>Dividing the "cystic duct" actually divides a hepatic duct — major injury</td></tr>
+        <tr><td>Mirizzi syndrome</td><td class="freq">&lt;1%</td><td>Cystic duct stone extrinsically compresses CHD — can mimic malignancy</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Hepatic artery variants (Michels classification)</h3>
+    <table class="variant-table">
+      <thead><tr><th>Type</th><th>Frequency</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Type I (normal)</td><td class="freq">55%</td><td>Proper hepatic artery from coeliac → right + left hepatic</td></tr>
+        <tr><td>Type II</td><td class="freq">10%</td><td>Replaced left hepatic from left gastric artery — runs in lesser omentum. At risk in gastrectomy.</td></tr>
+        <tr><td>Type III</td><td class="freq">11%</td><td>Replaced right hepatic from SMA — runs posterior to CBD. At risk in Whipple.</td></tr>
+        <tr><td>Type IV</td><td class="freq">1%</td><td>Both replaced — maximally variant</td></tr>
+        <tr><td>Type VI</td><td class="freq">7%</td><td>Accessory right hepatic from SMA — can be ligated if small, but check back bleeding</td></tr>
+      </tbody>
+    </table>
+
+    <div class="danger-box">
+      <div class="danger-label">Critical point</div>
+      <p>A replaced or accessory right hepatic artery from the SMA runs <strong>posterior to the portal vein and behind the CBD</strong> in the hepatoduodenal ligament. You will feel it pulsating during pancreaticoduodenectomy. Always check for it — ligation = right lobe ischaemia.</p>
+    </div>
+  </div>
+
+  <!-- DANGER ZONES -->
+  <div class="section" id="sec-danger">
+    <h2 class="section-title">Danger zones</h2>
+    <p class="section-intro">These are the moments in HPB surgery where good anatomy knowledge prevents disasters. Study these scenarios actively, not passively.</p>
+
+    <h3>Laparoscopic cholecystectomy</h3>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 1</div>
+      <p><strong>Tenting the CBD:</strong> If the gallbladder is retracted too cephalad (not laterally), it tents the CBD upward into the operative field. The CBD then appears horizontal and can be mistaken for the cystic duct. This is the single most common mechanism of major bile duct injury.</p>
+    </div>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 2</div>
+      <p><strong>The short cystic duct:</strong> If the cystic duct is &lt;5mm long, clips placed on it may partially occlude the CBD. Always place clips with the full duct visible on both sides of each clip.</p>
+    </div>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 3</div>
+      <p><strong>Bleeding from the cystic artery:</strong> Attempting to control haemorrhage with blind clipping in Calot's triangle is how hepatic arteries are ligated. Convert to open, compress with a sponge, and get exposure before any vascular control.</p>
+    </div>
+
+    <h3>Hepatic resection</h3>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 4</div>
+      <p><strong>Middle hepatic vein in right hepatectomy:</strong> During parenchymal transection along Cantlie's line, the middle hepatic vein runs in the plane. Injury causes massive haemorrhage and potential air embolism. The left lobe's venous drainage depends on it — sacrificing it may devascularise segment IV.</p>
+    </div>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 5</div>
+      <p><strong>Short right hepatic vein:</strong> The right hepatic vein has a very short extrahepatic course (0–15mm) before entering the IVC. Stapler misfiring during division is possible. Identify it with Pringle, verify its length with intraoperative ultrasound before dividing.</p>
+    </div>
+
+    <h3>Pancreaticoduodenectomy (Whipple)</h3>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 6</div>
+      <p><strong>Portal vein tunnel:</strong> The neck of the pancreas is tunnelled off the portal vein and SMV. Tributaries (especially the gastrocolic trunk / vein of Henle) entering from the right are short and tear easily. Stay on the vein surface and ligate each tributary individually — never avulse.</p>
+    </div>
+    <div class="danger-box">
+      <div class="danger-label">Danger zone 7</div>
+      <p><strong>SMA first approach:</strong> In the artery-first technique, the SMA is identified at the base of the mesentery before dividing the pancreatic neck. This allows assessment of resectability (posterior pancreatic margin) and early arterial control. Failure to identify the SMA can lead to inadvertent injury and catastrophic haemorrhage.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Intraoperative principle</div>
+      <p>When in doubt — stop, reassess, get help. A converted laparoscopic cholecystectomy is never a failure. A bile duct injury is. The decision to convert is a surgical decision, not a defeat.</p>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section" id="sec-quiz">
+    <h2 class="section-title">Self-test</h2>
+    <p class="section-intro">Answer each question before revealing the explanation. Track your score honestly — these are the types of questions that appear on surgical exit exams and consultant interviews.</p>
+    <div class="score-bar">
+      <div>Score: <span class="score-num" id="score-display">0/0</span></div>
+      <div style="flex:1; height:4px; background:var(--rule); border-radius:2px; overflow:hidden;">
+        <div id="score-bar" style="height:100%; background:var(--accent); width:0%; transition:width 0.4s;"></div>
+      </div>
+      <button class="copy-btn" onclick="resetQuiz()">RESET</button>
+    </div>
+    <div id="quiz-container"></div>
+  </div>
+
+  <!-- ANKI -->
+  <div class="section" id="sec-anki">
+    <h2 class="section-title">Anki cards</h2>
+    <p class="section-intro">Click any card to flip it. Use "Copy all" to paste the entire deck into Anki's import tool (tab-separated, Front::Back format).</p>
+    <button class="copy-all-btn" onclick="copyAllAnki()">⊞ Copy all cards to clipboard</button>
+    <div id="anki-container"></div>
+  </div>
+
+</div>
+
+<script>
+// ---- DATA ----
+const layers = [
+  { name: "Skin", detail: "Langer's lines run roughly transverse in the right subcostal region — incise along them for best cosmesis." },
+  { name: "Subcutaneous fat (Camper's fascia)", detail: "Variable thickness. Diathermy and blunt dissection." },
+  { name: "Scarpa's fascia", detail: "Membranous layer — continuous with Colles' fascia in the perineum." },
+  { name: "External oblique aponeurosis", detail: "Fibres run inferomedially. Its lower edge forms the inguinal ligament." },
+  { name: "Internal oblique muscle", detail: "Fibres run superomedially. Split in the direction of fibres to spare the segmental nerves (T7–T11)." },
+  { name: "Transversus abdominis", detail: "Fibres run transversely. The neurovascular plane (intercostal nerves and vessels) lies between this layer and internal oblique." },
+  { name: "Transversalis fascia", detail: "The endoabdominal fascia — thin but important barrier. Incised separately from peritoneum." },
+  { name: "Peritoneum", detail: "Enter carefully — bowel adhesions to anterior abdominal wall are common, especially in re-do surgery. Use sharp dissection under direct vision." }
+];
+
+const structures = [
+  { name: "Common Bile Duct", risk: "danger", detail: "4–15mm diameter. Lies to the right in the hepatoduodenal ligament. >8mm on USS suggests obstruction. Its blood supply comes from 3 and 9 o'clock vessels — lateral dissection devascularises it." },
+  { name: "Portal Vein", risk: "danger", detail: "Formed by SMV + splenic vein posterior to pancreatic neck. 6–8cm long, 1–1.5cm diameter. No valves — backflow is immediate on injury. Posterior structure in the ligament." },
+  { name: "Hepatic Artery (proper)", risk: "danger", detail: "Lies to the left of the CBD in the ligament. Gives right and left hepatic arteries at the hilum. Occlusion = right lobe ischaemia. Palpate for pulse before any division near the porta." },
+  { name: "Cystic Duct", risk: "warn", detail: "Usually 2–4cm long. Joins CBD at variable angles and levels. The most frequently misidentified structure in cholecystectomy. Never clip until you have the CVS." },
+  { name: "Cystic Artery", risk: "warn", detail: "Most commonly from right hepatic artery in Calot's triangle. Has a deep (posterior) and superficial (anterior) branch in 25% of cases. Bleeding from it is the commonest cause of conversion." },
+  { name: "Foramen of Winslow", risk: "warn", detail: "Only communication between greater and lesser sac. Bounded by: hepatoduodenal ligament (ant), IVC (post), caudate lobe (sup), first part duodenum (inf). Finger placed here allows Pringle manoeuvre." },
+  { name: "Hartmann's pouch", risk: "safe", detail: "Infundibulum of the gallbladder — the takeoff point of the cystic duct. When inflamed or impacted with stone, it can adhere to or directly fistulate into the CBD (Mirizzi syndrome)." },
+  { name: "Rouviere's sulcus", risk: "safe", detail: "A groove on the undersurface of the right liver lobe, usually containing the right portal pedicle. Identified laparoscopically as a landmark — the critical view dissection should stay anterior to this line." },
+];
+
+const quizData = [
+  {
+    q: "You are performing a laparoscopic cholecystectomy and have achieved Critical View of Safety. Before clipping, you notice what appears to be a second structure entering the gallbladder posteriorly. What is the most likely explanation and what should you do?",
+    opts: [
+      "A cystic artery branch — proceed with clipping and divide it separately",
+      "An aberrant right hepatic duct draining into the gallbladder — call for help, perform cholangiography",
+      "A lymphatic vessel — it can be divided safely",
+      "A fold of peritoneum — retract and proceed"
+    ],
+    correct: 1,
+    explain: "An aberrant right hepatic duct entering the cystic duct or gallbladder directly occurs in 3% of patients. If divided, it causes a Type E bile duct injury requiring hepaticojejunostomy. When in doubt, perform intraoperative cholangiography. The principle: if you cannot confidently identify every structure, do not divide."
+  },
+  {
+    q: "During elective Whipple procedure, you feel a strong arterial pulsation posterior to the common bile duct and behind the portal vein during dissection of the hepatoduodenal ligament. What is the most likely vessel and what is its significance?",
+    opts: [
+      "Normal right hepatic artery — expected anatomy, proceed",
+      "A replaced right hepatic artery from the SMA — must be preserved or the right lobe will be ischaemic",
+      "The gastroduodenal artery — ligate it as part of the standard Whipple",
+      "A portal vein tributary — control with suture ligature"
+    ],
+    correct: 1,
+    explain: "A replaced right hepatic artery (Michels Type III, ~11% of patients) arises from the SMA and runs posterior to the CBD. Ligation causes right lobe ischaemia and hepatic failure. Always palpate for a posterior pulse before any division in this region. CT angiography pre-operatively should identify this — check the imaging before every Whipple."
+  },
+  {
+    q: "Which of the following correctly describes the boundaries of Calot's triangle in its ORIGINAL description versus the surgically important 'hepatocystic triangle' used today?",
+    opts: [
+      "They are identical — both use the liver as the superior boundary",
+      "Calot's original description used the cystic artery as the superior boundary; modern use replaces this with the liver surface",
+      "Calot's original description used the CBD as the medial boundary; modern use uses the CHD",
+      "There is no clinically meaningful difference between the two"
+    ],
+    correct: 1,
+    explain: "This is a classic viva question. Calot (1891) described a triangle with the cystic duct (inferior), common hepatic duct (medial), and cystic artery (superior). Modern surgical teaching replaces the cystic artery with the inferior surface of the liver, creating the 'hepatocystic triangle'. This distinction matters because the cystic artery is inside the triangle — identifying it requires dissection, not just defining a boundary."
+  },
+  {
+    q: "A patient has a right hepatectomy. Post-operatively, segment IV (the medial left lobe) becomes necrotic. What is the most likely intraoperative cause?",
+    opts: [
+      "Injury to the left hepatic artery",
+      "Inadvertent ligation of the middle hepatic vein without adequate drainage from the left hepatic vein",
+      "Pringle manoeuvre held for >60 minutes causing global ischaemia",
+      "Injury to the portal vein"
+    ],
+    correct: 1,
+    explain: "The middle hepatic vein drains segment IV (and segments V and VIII). In a right hepatectomy, if the middle hepatic vein is divided or sacrificed without an adequate left hepatic vein to compensate, segment IV loses its venous outflow. This is one of the most common causes of segment IV necrosis after right hepatectomy. Pre-operative volumetric planning should assess venous drainage patterns."
+  },
+  {
+    q: "Couinaud segment I (caudate lobe) has unique features that make it surgically distinct. Which of the following is correct?",
+    opts: [
+      "It receives portal blood only from the left portal vein",
+      "It drains via the right hepatic vein exclusively",
+      "It has direct short hepatic veins draining into the IVC and dual portal supply — making it preserve-able or resectable independently",
+      "It is always sacrificed in right hepatectomy due to proximity to the right hepatic vein"
+    ],
+    correct: 2,
+    explain: "The caudate lobe (segment I) is anatomically autonomous. It receives portal branches from both left and right portal veins, and drains directly into the IVC via multiple short caudate veins (not via the three main hepatic veins). This is why it is often preserved even in major resections — and why it is characteristically spared (and may enlarge) in Budd-Chiari syndrome when the hepatic veins are occluded."
+  }
+];
+
+const ankiCards = [
+  { front: "What are the boundaries of Calot's triangle (modern surgical definition)?", back: "Inferior: cystic duct | Medial: common hepatic duct | Superior: inferior surface of the liver (NOT cystic artery — that is Calot's original 1891 description)" },
+  { front: "What are the two criteria for Critical View of Safety (CVS)?", back: "1. The hepatocystic triangle is cleared of fat and fibrous tissue\n2. The lower third of the gallbladder is separated from the liver bed\nResult: only TWO structures seen entering the gallbladder" },
+  { front: "Name the structures in the hepatoduodenal ligament and their positions", back: "Posterior: Portal vein\nLeft anterior: Hepatic artery (proper)\nRight anterior: Common bile duct\nMnemonic: VAN (Vein-Artery-Duct) from posterior → anterior" },
+  { front: "What are the boundaries of the Foramen of Winslow?", back: "Anterior: hepatoduodenal ligament\nPosterior: IVC\nSuperior: caudate lobe of liver\nInferior: first part of duodenum\n(Only communication between greater and lesser sac)" },
+  { front: "Michels Type III hepatic artery variant — describe it and its surgical significance", back: "Replaced right hepatic artery arising from SMA (~11% of patients). Runs posterior to CBD and portal vein. At risk in Whipple procedure. Ligation = right lobe ischaemia. Always palpate for posterior pulse before dividing in hepatoduodenal ligament." },
+  { front: "What are Couinaud segments I–VIII? Describe the segmental anatomy briefly.", back: "I: Caudate lobe (independent venous drainage to IVC)\nII–III: Left lateral sector (left of left hepatic vein)\nIV: Left medial sector (between MHV and LHV)\nV–VIII: Right lobe\nV+VIII: Anterior sector (between MHV and RHV)\nVI+VII: Posterior sector (right of RHV)" },
+  { front: "What is the Pringle manoeuvre and what does it control?", back: "Manual compression or clamping of the hepatoduodenal ligament between thumb (anterior) and index finger (through Foramen of Winslow, posterior). Controls hepatic inflow (portal vein + hepatic artery). Used during hepatic resection or trauma to reduce haemorrhage. Warm ischaemia generally tolerated up to 60min in non-cirrhotic liver." },
+  { front: "What is Rouviere's sulcus and why is it important laparoscopically?", back: "A groove on the undersurface of the right lobe of the liver, usually containing the right portal pedicle. Identified as a landmark in laparoscopic cholecystectomy — dissection should remain anterior and superior to this sulcus to avoid entering dangerous posterior planes." },
+  { front: "What is Cantlie's line and what does it define?", back: "The anatomical midplane of the liver running from the gallbladder fossa to the IVC. Marks the boundary between right and left functional lobes. The middle hepatic vein runs in this plane. Used to plan right or left hepatectomy — the true lobar boundary (NOT the falciform ligament)." },
+  { front: "What is Mirizzi syndrome?", back: "Extrinsic compression of the common hepatic duct by a stone impacted in the cystic duct or Hartmann's pouch. Presents like obstructive jaundice/cholangitis. Classified Type I (compression only) to IV (cholecystocholedochal fistula). Important pre-op to identify — standard cholecystectomy risks CBD injury." },
+];
+
+// ---- INIT ----
+window.onload = () => {
+  buildLayers();
+  buildStructures();
+  buildQuiz();
+  buildAnki();
+};
+
+function buildLayers() {
+  const c = document.getElementById('layers-kocher');
+  layers.forEach((l, i) => {
+    const div = document.createElement('div');
+    div.className = 'layer';
+    div.innerHTML = `<div class="layer-num">${i+1}</div><div class="layer-content"><div class="layer-name">${l.name} <span class="layer-indicator">▸ expand</span></div><div class="layer-detail">${l.detail}</div></div>`;
+    div.onclick = () => { div.classList.toggle('open'); div.querySelector('.layer-indicator').textContent = div.classList.contains('open') ? '▾ collapse' : '▸ expand'; };
+    c.appendChild(div);
+  });
+}
+
+function buildStructures() {
+  const c = document.getElementById('struct-grid');
+  structures.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'struct-card';
+    const riskLabel = s.risk === 'danger' ? 'High risk' : s.risk === 'warn' ? 'Know well' : 'Important';
+    const badgeClass = `badge-${s.risk === 'safe' ? 'safe' : s.risk}`;
+    div.innerHTML = `<div class="struct-header">${s.name}<span class="badge ${badgeClass}">${riskLabel}</span></div><div class="struct-body">${s.detail}</div>`;
+    div.onclick = () => div.classList.toggle('open');
+    c.appendChild(div);
+  });
+}
+
+let scores = { correct: 0, total: 0 };
+function buildQuiz() {
+  const c = document.getElementById('quiz-container');
+  quizData.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-card';
+    const opts = q.opts.map((o, oi) => `<div class="quiz-opt" data-qi="${qi}" data-oi="${oi}">${o}</div>`).join('');
+    div.innerHTML = `<div class="quiz-q"><span class="q-num">Question ${qi+1} of ${quizData.length}</span>${q.q}</div><div class="quiz-options">${opts}</div><div class="quiz-explain" id="exp-${qi}"><strong>Explanation:</strong> ${q.explain}</div>`;
+    c.appendChild(div);
+  });
+  document.querySelectorAll('.quiz-opt').forEach(opt => {
+    opt.addEventListener('click', function() {
+      const qi = +this.dataset.qi, oi = +this.dataset.oi;
+      const siblings = document.querySelectorAll(`[data-qi="${qi}"]`);
+      siblings.forEach(s => s.classList.add('disabled'));
+      this.classList.add(oi === quizData[qi].correct ? 'correct' : 'wrong');
+      if (oi !== quizData[qi].correct) siblings[quizData[qi].correct].classList.add('correct');
+      document.getElementById(`exp-${qi}`).classList.add('visible');
+      scores.total++;
+      if (oi === quizData[qi].correct) scores.correct++;
+      updateScore();
+    });
+  });
+}
+
+function updateScore() {
+  document.getElementById('score-display').textContent = `${scores.correct}/${scores.total}`;
+  document.getElementById('score-bar').style.width = scores.total ? `${(scores.correct/scores.total)*100}%` : '0%';
+}
+
+function resetQuiz() {
+  scores = { correct: 0, total: 0 };
+  updateScore();
+  document.getElementById('quiz-container').innerHTML = '';
+  buildQuiz();
+}
+
+function buildAnki() {
+  const c = document.getElementById('anki-container');
+  ankiCards.forEach((card, i) => {
+    const div = document.createElement('div');
+    div.className = 'anki-card';
+    div.innerHTML = `<div class="anki-front"><span>Q${i+1}: ${card.front}</span><span class="flip-icon">tap to flip</span></div><div class="anki-back">${card.back.replace(/\n/g,'<br>')}<br><button class="copy-btn" onclick="copySingle(${i}, event)">COPY THIS CARD</button></div>`;
+    div.querySelector('.anki-front').onclick = () => div.classList.toggle('flipped');
+    c.appendChild(div);
+  });
+}
+
+function copyAllAnki() {
+  const text = ankiCards.map(c => `${c.front}\t${c.back.replace(/\n/g,' | ')}`).join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-all-btn');
+    btn.textContent = '✓ Copied to clipboard!';
+    setTimeout(() => btn.innerHTML = '⊞ Copy all cards to clipboard', 2000);
+  });
+}
+
+function copySingle(i, e) {
+  e.stopPropagation();
+  const c = ankiCards[i];
+  navigator.clipboard.writeText(`${c.front}\t${c.back.replace(/\n/g,' | ')}`);
+}
+
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+<!-- RELATED GUIDES + EVIDENCE FOOTER injected by JS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const main = document.querySelector('.main');
+
+  // Related guides
+  const related = [
+    { id: "acute-cholecystitis",           pillar: "Conditions",  title: "Acute Cholecystitis",         sub: "Tokyo guidelines, management",          path: "../../guides/conditions/acute-cholecystitis.html",          planned: true },
+    { id: "laparoscopic-cholecystectomy",  pillar: "Procedures",  title: "Laparoscopic Cholecystectomy", sub: "CVS, port placement, danger zones",      path: "../../guides/procedures/laparoscopic-cholecystectomy.html", planned: true },
+    { id: "acute-pancreatitis",            pillar: "Conditions",  title: "Acute Pancreatitis",           sub: "Scoring, complications, necrosectomy",   path: "../../guides/conditions/acute-pancreatitis.html",           planned: true },
+    { id: "intraabdominal-sepsis",         pillar: "Microbiology",title: "Intra-abdominal Sepsis",       sub: "Peritonitis, organisms, antibiotics",    path: "../../guides/microbiology/intraabdominal-sepsis.html",      planned: true },
+    { id: "hepatic-physiology",            pillar: "Physiology",  title: "Hepatic Physiology",           sub: "Portal blood flow, synthetic function",  path: "../../guides/physiology/hepatic-physiology.html",           planned: true },
+  ];
+
+  const pillarColors = { Conditions:"#b82a2a", Procedures:"#1a1a1a", Microbiology:"#2ab87a", Physiology:"#2a6eb8" };
+
+  let relHtml = `<div style="margin-top:40px;padding-top:24px;border-top:1px solid #d4c9b8;">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#4a5568;margin-bottom:14px;">Related guides</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;">`;
+
+  related.forEach(r => {
+    const color = pillarColors[r.pillar] || "#1a1a1a";
+    const opacity = r.planned ? 'opacity:0.5;pointer-events:none;' : '';
+    relHtml += `<a href="${r.path}" style="border:1px solid #d4c9b8;border-left:3px solid ${color};border-radius:3px;padding:11px 13px;text-decoration:none;color:inherit;display:block;background:#faf8f4;${opacity}">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:${color};margin-bottom:3px;">${r.pillar}${r.planned?' · planned':''}</div>
+      <div style="font-size:13px;font-weight:500;margin-bottom:2px;">${r.title}</div>
+      <div style="font-size:11px;color:#4a5568;line-height:1.3;">${r.sub}</div>
+    </a>`;
+  });
+
+  relHtml += `</div></div>`;
+
+  // Evidence footer
+  relHtml += `<div style="margin-top:28px;padding:14px 18px;background:#faf8f4;border:1px solid #d4c9b8;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <div style="color:#b85c2a;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Evidence & currency</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;color:#4a5568;line-height:1.9;">
+      Primary sources: <span style="color:#1a1a1a">Gray's Anatomy 42nd ed · Skandalakis' Surgical Anatomy · Last's Anatomy</span> &nbsp;|&nbsp;
+      Operative technique: <span style="color:#1a1a1a">Bailey & Love 27th ed · Blumgart's Surgery of the Liver</span> &nbsp;|&nbsp;
+      Generated: <span style="color:#1a1a1a">${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</span> &nbsp;|&nbsp;
+      Last verified: <span style="color:#b85c2a">NOT YET VERIFIED — check against your primary texts before clinical use</span>
+    </div>
+  </div>`;
+
+  main.insertAdjacentHTML('beforeend', relHtml);
+});
+</script>
+</body>
+</html>

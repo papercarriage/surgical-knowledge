@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surgical Knowledge Base</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="assets/js/nav.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a; --paper: #f5f0e8; --warm-white: #faf8f4;
+    --accent: #b85c2a; --accent-light: #e8c5a8; --accent-muted: #f0ddd0;
+    --steel: #4a5568; --rule: #d4c9b8;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; }
+
+  .hero {
+    background: var(--ink); color: var(--paper);
+    padding: 56px 48px 44px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '⚕';
+    font-size: 320px; position: absolute; right: -40px; top: -60px;
+    color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none;
+  }
+  .hero-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; color: var(--accent-light); text-transform: uppercase; margin-bottom: 14px; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(32px, 5vw, 58px); font-weight: 600; line-height: 1.1; margin-bottom: 14px; }
+  .hero h1 em { font-style: italic; color: var(--accent-light); }
+  .hero-sub { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 520px; line-height: 1.6; margin-bottom: 28px; }
+  .hero-stats { display: flex; gap: 32px; flex-wrap: wrap; }
+  .stat { }
+  .stat-num { font-family: var(--mono); font-size: 28px; color: var(--accent-light); font-weight: 500; line-height: 1; }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 2px; letter-spacing: 0.04em; }
+
+  .controls {
+    background: var(--warm-white); border-bottom: 1px solid var(--rule);
+    padding: 16px 48px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 340px; }
+  .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--steel); pointer-events: none; }
+  #search { width: 100%; padding: 8px 12px 8px 30px; border: 1px solid var(--rule); background: white; border-radius: 3px; font-family: var(--sans); font-size: 13px; color: var(--ink); outline: none; }
+  #search:focus { border-color: var(--accent); }
+  .filter-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filter-btn { font-family: var(--mono); font-size: 10px; padding: 5px 12px; border: 1px solid var(--rule); background: none; border-radius: 2px; cursor: pointer; color: var(--steel); letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.15s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .main { max-width: 1100px; margin: 0 auto; padding: 40px 48px; }
+
+  .pillar-section { margin-bottom: 44px; }
+  .pillar-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+  .pillar-icon { width: 32px; height: 32px; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .pillar-name { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+  .pillar-count { font-family: var(--mono); font-size: 11px; color: var(--steel); margin-left: auto; }
+
+  .guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .guide-card {
+    border: 1px solid var(--rule); border-radius: 4px; padding: 16px 18px;
+    background: var(--warm-white); text-decoration: none; color: inherit;
+    transition: all 0.18s; display: flex; flex-direction: column; gap: 6px;
+    position: relative; overflow: hidden;
+  }
+  .guide-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+  .guide-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .guide-card.planned { opacity: 0.5; pointer-events: none; cursor: default; }
+  .guide-card.planned::after { content: 'PLANNED'; font-family: var(--mono); font-size: 9px; position: absolute; top: 10px; right: 10px; color: var(--steel); letter-spacing: 0.08em; }
+  .guide-card-title { font-family: var(--serif); font-size: 15px; font-weight: 600; line-height: 1.2; }
+  .guide-card-sub { font-size: 12px; color: var(--steel); line-height: 1.4; }
+  .guide-card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+  .guide-tag { font-family: var(--mono); font-size: 9px; padding: 1px 6px; border-radius: 2px; background: rgba(0,0,0,0.05); color: var(--steel); letter-spacing: 0.04em; }
+  .guide-card-foot { display: flex; gap: 8px; margin-top: auto; padding-top: 8px; align-items: center; }
+  .notion-link { font-family: var(--mono); font-size: 9px; padding: 2px 7px; border: 1px solid var(--rule); border-radius: 2px; color: var(--steel); text-decoration: none; transition: all 0.15s; }
+  .notion-link:hover { border-color: var(--accent); color: var(--accent); }
+  .open-badge { font-family: var(--mono); font-size: 9px; color: var(--accent); letter-spacing: 0.06em; }
+
+  .empty-state { text-align: center; padding: 48px 24px; color: var(--steel); }
+  .empty-state-icon { font-size: 32px; margin-bottom: 12px; }
+
+  @media (max-width: 768px) {
+    .hero, .controls, .main { padding-left: 20px; padding-right: 20px; }
+    .guide-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .guide-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">General Surgery · Knowledge Base</div>
+  <h1>Surgical<br><em>Knowledge</em></h1>
+  <p class="hero-sub">Interactive study guides across anatomy, physiology, microbiology, pathology, conditions and procedures. Built for surgical training.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num" id="stat-complete">0</div><div class="stat-label">Guides complete</div></div>
+    <div class="stat"><div class="stat-num" id="stat-planned">0</div><div class="stat-label">Planned</div></div>
+    <div class="stat"><div class="stat-num" id="stat-total">0</div><div class="stat-label">Total topics</div></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input id="search" placeholder="Search guides, tags…" oninput="filterGuides()" />
+  </div>
+  <div class="filter-btns" id="filter-btns">
+    <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+    <button class="filter-btn" onclick="setFilter('complete', this)">Ready to use</button>
+  </div>
+</div>
+
+<div class="main" id="main-content"></div>
+
+<script>
+// Inline the guides data so index.html works standalone
+// (duplicated from nav.js for the dashboard — keep in sync)
+const PILLARS_META = {
+  anatomy:              { label: "Anatomy",          color: "#b85c2a", bg: "#fdf6f0" },
+  physiology:           { label: "Physiology",        color: "#2a6eb8", bg: "#f0f4fd" },
+  microbiology:         { label: "Microbiology",      color: "#2ab87a", bg: "#f0fdf7" },
+  pharmacology:         { label: "Pharmacology",      color: "#8b2ab8", bg: "#f8f0fd" },
+  pathology:            { label: "Pathology",         color: "#b8862a", bg: "#fdf8f0" },
+  conditions:           { label: "Conditions",        color: "#b82a2a", bg: "#fdf0f0" },
+  procedures:           { label: "Procedures",        color: "#1a1a1a", bg: "#f5f5f5" },
+  "clinical-reasoning": { label: "Clinical Reasoning", color: "#2a8bb8", bg: "#f0f8fd" },
+};
+
+let activeFilter = 'all';
+
+function filterGuides() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.guide-card').forEach(card => {
+    const text = card.dataset.search || '';
+    const status = card.dataset.status;
+    const matchQuery = text.includes(q);
+    const matchFilter = activeFilter === 'all' || status === activeFilter;
+    card.style.display = (matchQuery && matchFilter) ? 'flex' : 'none';
+  });
+  document.querySelectorAll('.pillar-section').forEach(sec => {
+    const visible = [...sec.querySelectorAll('.guide-card')].some(c => c.style.display !== 'none');
+    sec.style.display = visible ? 'block' : 'none';
+  });
+}
+
+function setFilter(val, btn) {
+  activeFilter = val;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterGuides();
+}
+
+function buildDashboard() {
+  const grouped = {};
+  let complete = 0, planned = 0;
+
+  GUIDES.forEach(g => {
+    if (!grouped[g.pillar]) grouped[g.pillar] = [];
+    grouped[g.pillar].push(g);
+    if (g.status === 'complete') complete++; else planned++;
+  });
+
+  document.getElementById('stat-complete').textContent = complete;
+  document.getElementById('stat-planned').textContent = planned;
+  document.getElementById('stat-total').textContent = GUIDES.length;
+
+  const main = document.getElementById('main-content');
+  let html = '';
+
+  Object.entries(PILLARS_META).forEach(([key, meta]) => {
+    if (!grouped[key]) return;
+    const guides = grouped[key];
+    html += `<div class="pillar-section" data-pillar="${key}">
+      <div class="pillar-header">
+        <div class="pillar-icon" style="background:${meta.bg}; color:${meta.color}; border: 1px solid ${meta.color}22">◈</div>
+        <div class="pillar-name">${meta.label}</div>
+        <div class="pillar-count">${guides.filter(g=>g.status==='complete').length}/${guides.length} ready</div>
+      </div>
+      <div class="guide-grid">`;
+
+    guides.forEach(g => {
+      const isPlanned = g.status === 'planned';
+      const href = isPlanned ? '#' : g.path.replace(/^\//, '');
+      const notionBtn = g.notionUrl ? `<a class="notion-link" href="${g.notionUrl}" target="_blank" onclick="event.stopPropagation()">NOTION ↗</a>` : '';
+      const openBadge = !isPlanned ? `<span class="open-badge">OPEN →</span>` : '';
+      const tags = g.tags.map(t => `<span class="guide-tag">${t}</span>`).join('');
+      const searchText = `${g.title} ${g.subtitle} ${g.tags.join(' ')} ${meta.label}`.toLowerCase();
+
+      html += `<a class="guide-card${isPlanned ? ' planned' : ''}"
+        href="${href}" data-search="${searchText}" data-status="${g.status}"
+        style="--card-color:${meta.color}">
+        <style>.guide-card[style*="${meta.color}"]::before { background: ${meta.color}; }</style>
+        <div class="guide-card-title">${g.title}</div>
+        <div class="guide-card-sub">${g.subtitle}</div>
+        <div class="guide-card-tags">${tags}</div>
+        <div class="guide-card-foot">${notionBtn}${openBadge}</div>
+      </a>`;
+    });
+
+    html += `</div></div>`;
+  });
+
+  main.innerHTML = html;
+}
+
+buildDashboard();
+</script>
+</body>
+</html>
