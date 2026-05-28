@@ -48,6 +48,47 @@ const GUIDES = [
     status: "planned",
   },
 
+  {
+    id: "lower-limb-arterial",
+    title: "Lower Limb Arterial Anatomy",
+    subtitle: "Femoral triangle, popliteal fossa, trifurcation, collaterals",
+    pillar: "anatomy",
+    tags: ["vascular", "PAD", "bypass", "amputation", "femoral", "popliteal"],
+    notionUrl: "",
+    path: "/guides/anatomy/lower-limb-arterial.html",
+    status: "complete",
+  },
+  {
+    id: "carotid-anatomy",
+    title: "Carotid & Cerebrovascular Anatomy",
+    subtitle: "ICA/ECA, circle of Willis, cranial nerves, CEA",
+    pillar: "anatomy",
+    tags: ["vascular", "carotid", "CEA", "TIA", "stroke"],
+    notionUrl: "",
+    path: "/guides/anatomy/carotid-anatomy.html",
+    status: "complete",
+  },
+  {
+    id: "aortic-anatomy",
+    title: "Aorta & Iliac Anatomy",
+    subtitle: "Segments, branches, EVAR zones, Crawford classification",
+    pillar: "anatomy",
+    tags: ["vascular", "AAA", "EVAR", "aorta", "iliac"],
+    notionUrl: "",
+    path: "/guides/anatomy/aortic-anatomy.html",
+    status: "complete",
+  },
+  {
+    id: "venous-anatomy",
+    title: "Lower Limb Venous Anatomy",
+    subtitle: "GSV, SSV, perforators, CEAP, DVT, bypass conduit",
+    pillar: "anatomy",
+    tags: ["vascular", "varicose veins", "DVT", "GSV", "bypass"],
+    notionUrl: "",
+    path: "/guides/anatomy/venous-anatomy.html",
+    status: "complete",
+  },
+
   // ── FOUNDATIONS: PHYSIOLOGY ───────────────────────────────────────
   {
     id: "surgical-stress-response",
