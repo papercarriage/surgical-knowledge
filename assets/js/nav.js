@@ -248,6 +248,16 @@ const GUIDES = [
     path: "/guides/procedures/anterior-resection.html",
     status: "planned",
   },
+  {
+    id: "angioplasty-techniques",
+    title: "Angioplasty & Endovascular Techniques",
+    subtitle: "Wires, sheaths, balloons, and CTO-crossing techniques (SAFARI)",
+    pillar: "procedures",
+    tags: ["vascular", "angioplasty", "PTA", "endovascular", "CTO"],
+    notionUrl: "",
+    path: "/guides/procedures/angioplasty-techniques.html",
+    status: "complete",
+  },
 ];
 
 // ── PILLAR METADATA ───────────────────────────────────────────────────────────
