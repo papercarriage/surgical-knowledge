@@ -258,6 +258,26 @@ const GUIDES = [
     path: "/guides/procedures/angioplasty-techniques.html",
     status: "complete",
   },
+  {
+    id: "evar-tevar",
+    title: "EVAR & TEVAR",
+    subtitle: "Landing zones, endograft selection, endoleak classification",
+    pillar: "procedures",
+    tags: ["vascular", "EVAR", "TEVAR", "endovascular", "aneurysm"],
+    notionUrl: "",
+    path: "/guides/procedures/evar-tevar.html",
+    status: "complete",
+  },
+  {
+    id: "aneurysm-repair-iliac-peripheral",
+    title: "Iliac & Peripheral Artery Aneurysm Repair",
+    subtitle: "Ligate vs reconstruct, mycotic aneurysm principles",
+    pillar: "procedures",
+    tags: ["vascular", "aneurysm", "iliac", "mycotic", "infected aneurysm"],
+    notionUrl: "",
+    path: "/guides/procedures/aneurysm-repair-iliac-peripheral.html",
+    status: "complete",
+  },
 ];
 
 // ── PILLAR METADATA ───────────────────────────────────────────────────────────
