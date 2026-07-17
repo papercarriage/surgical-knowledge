@@ -153,6 +153,18 @@ const GUIDES = [
     status: "planned",
   },
 
+  // ── FOUNDATIONS: PHARMACOLOGY ──────────────────────────────────────
+  {
+    id: "vasopressors-inotropes",
+    title: "Vasopressors & Inotropes",
+    subtitle: "Noradrenaline, adrenaline, dopamine — dosing & receptor pharmacology",
+    pillar: "pharmacology",
+    tags: ["pharmacology", "vasopressors", "inotropes", "sepsis", "peri-operative"],
+    notionUrl: "",
+    path: "/guides/pharmacology/vasopressors-inotropes.html",
+    status: "complete",
+  },
+
   // ── FOUNDATIONS: PATHOLOGY ────────────────────────────────────────
   {
     id: "neoplasia-principles",
