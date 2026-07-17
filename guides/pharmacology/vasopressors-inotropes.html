@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vasopressors & Inotropes | Surgical Knowledge</title>
+<link rel="stylesheet" href="../../assets/css/shared.css">
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-bg-text">NAD</div>
+  <div class="tag-line">Pharmacology · Peri-operative</div>
+  <h1>Vasopressors & <em>Inotropes</em></h1>
+  <div class="meta-row">
+    <div class="meta-pill">Noradrenaline · Adrenaline · Dopamine</div>
+    <div class="meta-pill">mcg/kg/min <span>▸</span> ml/hr maths</div>
+    <div class="meta-pill">Dose-dependent receptor effects</div>
+  </div>
+</div>
+
+<div class="breadcrumb">
+  <a href="../../index.html">Home</a> <span>›</span> <a href="../../index.html#pharmacology">Pharmacology</a> <span>›</span> Vasopressors & Inotropes
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="skTab('overview')">Overview</button>
+  <button class="tab-btn" onclick="skTab('keyfacts')">Key Facts</button>
+  <button class="tab-btn" onclick="skTab('relevance')">Surgical Relevance</button>
+  <button class="tab-btn" onclick="skTab('anki')">Anki Cards</button>
+  <button class="tab-btn" onclick="skTab('selftest')">Self-Test</button>
+</div>
+
+<div class="main">
+
+<!-- ============ OVERVIEW ============ -->
+<div class="section active" id="overview">
+  <div class="section-title">Reading a mcg/kg/min Order</div>
+  <div class="section-intro">Noradrenaline, adrenaline, and dopamine — what the dose actually means, how to convert it to a pump rate, and why the same number on the pump can mean different things.</div>
+
+  <h3>What mcg/kg/min means</h3>
+  <p><b>mcg/kg/min = micrograms of drug, per kilogram of the patient's body weight, per minute.</b> It's a weight-normalised dose, not a pump rate — the pump runs in ml/hr, so you (or the pump's drug library) must convert.</p>
+
+  <h3>The conversion formula</h3>
+  <div class="card">
+    <div class="card-title">mcg/kg/min → ml/hr</div>
+    <p style="font-family:var(--mono); font-size:14px;">Rate (ml/hr) = Dose (mcg/kg/min) × Weight (kg) × 60 ÷ Concentration (mcg/ml)</p>
+    <p>The ×60 converts "per minute" into "per hour," since infusion pumps run in ml/hr.</p>
+  </div>
+
+  <h3>Worked example — 0.04 mcg/kg/min noradrenaline</h3>
+  <p>Patient 70kg, bag made up as 4mg in 50ml.</p>
+  <ul style="margin-left:20px; margin-bottom:14px;">
+    <li><b>Concentration:</b> 4mg = 4000mcg ÷ 50ml = 80 mcg/ml</li>
+    <li><b>Dose per minute:</b> 0.04 × 70 = 2.8 mcg/min</li>
+    <li><b>Dose per hour:</b> 2.8 × 60 = 168 mcg/hr</li>
+    <li><b>Pump rate:</b> 168 ÷ 80 = <b>2.1 ml/hr</b></li>
+  </ul>
+  <p>Same dose on an 8mg/50ml bag (160 mcg/ml) instead gives 168 ÷ 160 = <b>1.05 ml/hr</b> — the ml/hr number on the pump is meaningless without knowing the bag concentration. Always sanity-check the mcg/kg/min dose itself, not just what the pump displays.</p>
+
+  <div class="tip-box"><div class="tip-label">Practical habit</div>
+  <p>When you see an infusion rate on a drug chart, reverse the formula to check the mcg/kg/min makes physiological sense for that patient. Decimal-point errors in this conversion are a classic, dangerous prescribing error.</p></div>
+
+  <h3>A regional prescribing quirk</h3>
+  <p>Some units prescribe noradrenaline as <b>mcg/min or mg/hour</b> rather than weight-based mcg/kg/min, because weight-based dosing correlates poorly with actual haemodynamic response for this drug, and non-weight-based dosing avoids a common error source (wrong weight entered → wrong rate). Always check which convention your unit uses before doing mental maths — don't assume.</p>
+
+  <div class="danger-box">
+    <div class="danger-label">⚠️ Exam Trap</div>
+    <p>Don't confuse the number on the infusion pump (ml/hr) with the prescribed dose (mcg/kg/min) — they are related only through the bag concentration and the patient's weight. A "correct-looking" pump rate can still be a 10x dosing error if the wrong concentration was assumed.</p>
+  </div>
+</div>
+
+<!-- ============ KEY FACTS ============ -->
+<div class="section" id="keyfacts">
+  <div class="section-title">The Three Drugs — Receptor Pharmacology & Dosing</div>
+  <div class="section-intro">Same broad drug class, very different dose-response behaviour.</div>
+
+  <h3>Noradrenaline (norepinephrine)</h3>
+  <table class="sk-table">
+    <tr><th>Receptors</th><td>Potent α1 agonist (vasoconstriction) + mild β1 (inotropy/chronotropy)</td></tr>
+    <tr><th>Typical dose</th><td>0.01–0.5 mcg/kg/min (titrated higher in refractory shock)</td></tr>
+    <tr><th>Primary role</th><td>First-line vasopressor in septic shock — target MAP ≥65mmHg</td></tr>
+  </table>
+  <p>Dose-response is fairly linear — vasoconstriction (and MAP/SVR) rises proportionally with dose, without the sharp receptor "tiers" seen with dopamine.</p>
+
+  <h3>Adrenaline (epinephrine)</h3>
+  <table class="sk-table">
+    <tr><th>Receptors</th><td>α1, β1, β2 — genuinely dose-dependent</td></tr>
+    <tr><th>Typical infusion dose</th><td>0.01–0.5 mcg/kg/min (second-line vasopressor/inotrope)</td></tr>
+    <tr><th>Also used for</th><td>Anaphylaxis (IM 0.5mg adult — different route/purpose); cardiac arrest (IV 1mg boluses q3–5min)</td></tr>
+  </table>
+  <table class="sk-table">
+    <tr><th>Dose (approx.)</th><th>Dominant receptor</th><th>Net effect</th></tr>
+    <tr><td>&lt;0.02–0.05 mcg/kg/min</td><td>β (β1 + β2)</td><td>↑ contractility & HR; β2 vasodilation can lower SVR</td></tr>
+    <tr><td>&gt;0.1–0.2 mcg/kg/min</td><td>α1</td><td>Vasoconstriction dominates</td></tr>
+  </table>
+
+  <h3>Dopamine</h3>
+  <table class="sk-table">
+    <tr><th>Dose</th><th>Receptor dominance</th><th>Effect</th></tr>
+    <tr><td>1–5 mcg/kg/min ("low/renal dose")</td><td>D1 (dopaminergic)</td><td>Renal & splanchnic vasodilation</td></tr>
+    <tr><td>5–10 mcg/kg/min ("intermediate/β dose")</td><td>β1</td><td>↑ contractility & heart rate</td></tr>
+    <tr><td>&gt;10 mcg/kg/min ("high/α dose")</td><td>α1</td><td>Vasoconstriction</td></tr>
+  </table>
+  <div class="danger-box">
+    <div class="danger-label">⚠️ Exam Trap</div>
+    <p>"Renal-dose dopamine" is a <b>debunked concept</b>. Despite D1-mediated renal vasodilation at low doses, no trial has shown genuine renal-protective or outcome benefit — a classic "sounds physiologically plausible but doesn't survive contact with evidence" teaching point, tested precisely because it's counterintuitive.</p>
+  </div>
+  <p>Dopamine has fallen out of first-line use since the SOAP II trial found it associated with more arrhythmias than noradrenaline, with a mortality signal specifically in the cardiogenic shock subgroup.</p>
+
+  <h3>Side-by-side comparison</h3>
+  <table class="sk-table">
+    <tr><th>Drug</th><th>Dominant receptor(s) by dose</th><th>Key side effect</th><th>Current primary use</th></tr>
+    <tr><td>Noradrenaline</td><td>α1 &gt;&gt; β1 (fairly constant ratio)</td><td>Peripheral ischaemia, reflex bradycardia</td><td>First-line vasopressor, septic shock</td></tr>
+    <tr><td>Adrenaline</td><td>β (low dose) → α (high dose)</td><td>Tachyarrhythmia, lactate elevation</td><td>Second-line vasopressor/inotrope; anaphylaxis; arrest</td></tr>
+    <tr><td>Dopamine</td><td>D1 (low) → β1 (mid) → α1 (high)</td><td>Tachyarrhythmia (most arrhythmogenic of the three)</td><td>Largely superseded; niche/second-line</td></tr>
+  </table>
+</div>
+
+<!-- ============ SURGICAL RELEVANCE ============ -->
+<div class="section" id="relevance">
+  <div class="section-title">Surgical Relevance</div>
+  <div class="section-intro">Where these drugs actually show up on your ward round and in theatre.</div>
+
+  <h3>Access</h3>
+  <ul style="margin-left:20px; margin-bottom:14px;">
+    <li>Central venous access is preferred once vasopressor doses escalate — extravasation of a potent vasoconstrictor causes severe local tissue ischaemia/necrosis.</li>
+    <li>Many units now tolerate short-term <b>peripheral</b> infusion of low-dose noradrenaline (via a large, proximal, well-sited cannula) while central access is being arranged — check your unit's protocol rather than assuming either way.</li>
+    <li><b>Extravasation management:</b> stop the infusion, aspirate what you can from the cannula, and the classic answer is local infiltration with <b>phentolamine</b> (an α-blocker) to reverse the vasoconstriction and limit tissue injury.</li>
+  </ul>
+
+  <h3>Monitoring</h3>
+  <p>Patients on a vasopressor/inotrope infusion should have continuous invasive arterial blood pressure monitoring (arterial line) rather than relying on intermittent non-invasive cuff readings — titration decisions are made in real time against a MAP target.</p>
+
+  <h3>Where you'll encounter this as a surgical trainee</h3>
+  <ul style="margin-left:20px; margin-bottom:14px;">
+    <li><b>Intra-operative hypotension:</b> anaesthetic team may start a vasopressor for anaesthetic-induced vasodilation or blood loss — understanding the drug helps you interpret the haemodynamic trend during a difficult case.</li>
+    <li><b>Post-operative septic shock</b> (e.g. anastomotic leak, intra-abdominal collection): noradrenaline is first-line once fluid resuscitation alone isn't maintaining MAP — recognising the need to escalate (and call for senior/ICU input) is a core ward-round skill.</li>
+    <li><b>Weaning:</b> vasopressors are weaned as the underlying cause is treated (source control, resolving sepsis) — a patient who can't be weaned, or who needs escalating doses, is a red flag for ongoing/undrained sepsis and should prompt a search for a surgical source, not just pharmacological escalation.</li>
+  </ul>
+
+  <div class="tip-box"><div class="tip-label">Practical pearl</div>
+  <p>If a post-operative patient's lactate is rising while on an adrenaline infusion, don't assume it means worsening perfusion by default — adrenaline itself raises lactate via β2-mediated glycolysis. Interpret lactate trends on adrenaline alongside other perfusion markers (urine output, capillary refill, base excess), not lactate in isolation.</p></div>
+</div>
+
+<!-- ============ ANKI CARDS ============ -->
+<div class="section" id="anki">
+  <div class="section-title">Anki Cards</div>
+  <div class="section-intro">Tap a card to flip. Use these to seed your Surgery::General Surgery deck.</div>
+
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">What does "mcg/kg/min" actually mean? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Micrograms of drug, per kilogram of the patient's body weight, per minute — a weight-normalised dose, not a pump rate.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">What's the formula to convert mcg/kg/min to ml/hr? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Rate (ml/hr) = Dose (mcg/kg/min) × Weight (kg) × 60 ÷ Concentration (mcg/ml).</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Why can two patients on the "same" pump rate (ml/hr) actually be receiving very different doses? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Because the ml/hr rate depends on both the patient's weight and the bag concentration — always convert back to mcg/kg/min to sanity-check a dose.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Noradrenaline's receptor profile? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Potent α1 agonist (vasoconstriction) with mild β1 activity (inotropy/chronotropy).</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">At low infusion doses, why can adrenaline actually lower SVR? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Low doses are β-predominant — β2-mediated vasodilation can dominate over the weaker α1 effect at that dose, before α1 effects take over at higher doses.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Dopamine's classic three dose tiers and their receptor dominance? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">1–5 mcg/kg/min: D1 (renal/splanchnic vasodilation). 5–10 mcg/kg/min: β1 (inotropy/chronotropy). &gt;10 mcg/kg/min: α1 (vasoconstriction).</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Is "renal-dose dopamine" evidence-based? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">No — despite plausible D1-mediated renal vasodilation, no trial has shown genuine renal-protective or outcome benefit. The concept is debunked.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Why has dopamine fallen out of first-line use as a vasopressor? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">The SOAP II trial found dopamine associated with more arrhythmias than noradrenaline, with a mortality signal in the cardiogenic shock subgroup — noradrenaline is now first-line.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Why does adrenaline raise lactate independent of tissue hypoperfusion? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">β2-mediated stimulation of glycolysis increases lactate production directly — a rising lactate on adrenaline doesn't necessarily mean worsening perfusion.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">First management step for vasopressor extravasation? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Stop the infusion, aspirate what you can from the cannula, and infiltrate the area locally with phentolamine (an α-blocker) to reverse vasoconstriction and limit tissue injury.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Why is a rising or escalating vasopressor requirement post-operatively a red flag? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">It suggests ongoing or undrained sepsis (e.g. anastomotic leak, collection) — should prompt a search for a surgical source, not just pharmacological escalation.</div>
+  </div>
+  <div class="anki-card" onclick="this.classList.toggle('flipped')">
+    <div class="anki-front">Why is continuous arterial line monitoring preferred over intermittent NIBP cuffs for patients on vasopressors? <span class="flip-icon">FLIP ▾</span></div>
+    <div class="anki-back">Titration decisions against a MAP target are made in real time, and intermittent cuff readings can miss rapid haemodynamic swings.</div>
+  </div>
+</div>
+
+<!-- ============ SELF-TEST ============ -->
+<div class="section" id="selftest">
+  <div class="section-title">Self-Test</div>
+  <div class="section-intro">5 scored MCQs. Tap an option to answer.</div>
+
+  <div class="score-bar">Score: <span class="score-num" id="sk-score">0</span>/5</div>
+
+  <div class="quiz-card" data-answer="1">
+    <div class="quiz-q"><span class="q-num">Question 1</span>A 60kg patient is prescribed noradrenaline 0.05 mcg/kg/min. The infusion bag is made up as 4mg in 50ml. What pump rate (ml/hr) delivers this dose?</div>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="skAnswer(this, false)">1.5 ml/hr</div>
+      <div class="quiz-opt" onclick="skAnswer(this, true)">2.25 ml/hr</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">3.0 ml/hr</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">4.5 ml/hr</div>
+    </div>
+    <div class="quiz-explain">Concentration = 4000mcg ÷ 50ml = 80mcg/ml. Dose = 0.05 × 60 = 3 mcg/min = 180 mcg/hr. Rate = 180 ÷ 80 = 2.25 ml/hr.</div>
+  </div>
+
+  <div class="quiz-card" data-answer="2">
+    <div class="quiz-q"><span class="q-num">Question 2</span>A patient on a dopamine infusion at 12 mcg/kg/min develops cold, mottled peripheries. Which receptor is most likely responsible for this effect at this dose?</div>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="skAnswer(this, false)">D1 (dopaminergic)</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">β1</div>
+      <div class="quiz-opt" onclick="skAnswer(this, true)">α1</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">β2</div>
+    </div>
+    <div class="quiz-explain">Above ~10 mcg/kg/min, dopamine's effect is α1-predominant, producing vasoconstriction — consistent with cold, mottled peripheries.</div>
+  </div>
+
+  <div class="quiz-card" data-answer="0">
+    <div class="quiz-q"><span class="q-num">Question 3</span>Which statement about "renal-dose" dopamine is correct?</div>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="skAnswer(this, true)">It has no proven renal-protective benefit despite plausible D1-receptor physiology</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">It is the current first-line strategy to prevent acute kidney injury in shock</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">It works via β1-mediated renal vasodilation</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">It is more effective than noradrenaline at preserving renal blood flow in septic shock</div>
+    </div>
+    <div class="quiz-explain">Despite D1-mediated renal vasodilation being physiologically plausible, trials have not demonstrated a genuine renal-protective or outcome benefit — "renal-dose dopamine" is a debunked concept.</div>
+  </div>
+
+  <div class="quiz-card" data-answer="3">
+    <div class="quiz-q"><span class="q-num">Question 4</span>A post-operative patient on an adrenaline infusion has a rising serum lactate but stable blood pressure, warm peripheries, and good urine output. What is the most appropriate interpretation?</div>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="skAnswer(this, false)">This confirms worsening tissue hypoperfusion requiring immediate fluid bolus</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">This indicates anastomotic leak until proven otherwise</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">Lactate is unreliable and should be ignored entirely</div>
+      <div class="quiz-opt" onclick="skAnswer(this, true)">The lactate rise may reflect adrenaline's β2-mediated glycolysis rather than hypoperfusion, given the reassuring perfusion markers</div>
+    </div>
+    <div class="quiz-explain">Adrenaline raises lactate via β2-mediated glycolysis independent of perfusion status. With warm peripheries, stable BP, and good urine output, the lactate rise is more likely drug-related than a sign of worsening shock — though ongoing clinical vigilance is still warranted.</div>
+  </div>
+
+  <div class="quiz-card" data-answer="1">
+    <div class="quiz-q"><span class="q-num">Question 5</span>A peripheral noradrenaline infusion extravasates into the surrounding tissue. What is the most appropriate immediate management?</div>
+    <div class="quiz-options">
+      <div class="quiz-opt" onclick="skAnswer(this, false)">Increase the infusion rate to flush the cannula</div>
+      <div class="quiz-opt" onclick="skAnswer(this, true)">Stop the infusion, aspirate the cannula, and infiltrate locally with phentolamine</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">Apply a warm compress and continue the infusion at the same site</div>
+      <div class="quiz-opt" onclick="skAnswer(this, false)">Switch to an equivalent dose of dopamine at the same site</div>
+    </div>
+    <div class="quiz-explain">Stop the infusion, aspirate what can be recovered from the cannula, and infiltrate the area with phentolamine (an α-blocker) to reverse local vasoconstriction and limit tissue ischaemia/necrosis.</div>
+  </div>
+</div>
+
+<div class="related-section">
+  <div class="related-label">Related Guides</div>
+  <div class="related-grid" id="sk-related">
+    <!-- populated by nav.js based on shared tags -->
+  </div>
+</div>
+
+<div class="evidence-footer">
+  <div class="evidence-footer-title">Evidence & Sources</div>
+  <div class="evidence-row">
+    <div>De Backer D, et al. <span>Comparison of dopamine and norepinephrine in the treatment of shock (SOAP II)</span>, NEJM 2010</div>
+    <div>Surviving Sepsis Campaign. <span>International Guidelines for Management of Sepsis and Septic Shock</span>, Crit Care Med 2021</div>
+    <div>Rutherford's Vascular Surgery / core anaesthesia texts — <span>chapters on peri-operative haemodynamic support</span></div>
+    <div>Guide reviewed: <span>Jul 2026</span></div>
+  </div>
+</div>
+
+</div>
+
+<script src="../../assets/js/nav.js"></script>
+<script>
+injectNav('vasopressors-inotropes');
+
+function skTab(id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  event.target.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+let skScore = 0;
+function skAnswer(el, isCorrect) {
+  const card = el.closest('.quiz-card');
+  if (card.classList.contains('answered')) return;
+  card.classList.add('answered');
+  card.querySelectorAll('.quiz-opt').forEach(o => o.classList.add('disabled'));
+  el.classList.add(isCorrect ? 'correct' : 'wrong');
+  if (!isCorrect) {
+    const correctIdx = parseInt(card.dataset.answer, 10);
+    card.querySelectorAll('.quiz-opt')[correctIdx].classList.add('correct');
+  }
+  card.querySelector('.quiz-explain').classList.add('visible');
+  if (isCorrect) {
+    skScore++;
+    document.getElementById('sk-score').textContent = skScore;
+  }
+}
+</script>
+
+</body>
+</html>
