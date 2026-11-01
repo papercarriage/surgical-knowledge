@@ -108,6 +108,16 @@ const GUIDES = [
     path: "/guides/anatomy/axilla-lymph-nodes.html",
     status: "complete",
   },
+  {
+    id: "thyroid-parathyroid-anatomy",
+    title: "Thyroid & Parathyroid Surgical Anatomy",
+    subtitle: "RLN, EBSLN, Berry's ligament, parathyroid position and supply",
+    pillar: "anatomy",
+    tags: ["head and neck", "thyroid", "parathyroid", "RLN", "thyroidectomy"],
+    notionUrl: "",
+    path: "/guides/anatomy/thyroid-parathyroid-anatomy.html",
+    status: "complete",
+  },
 
   // ── FOUNDATIONS: PHYSIOLOGY ───────────────────────────────────────
   {
