@@ -128,6 +128,16 @@ const GUIDES = [
     path: "/guides/anatomy/neck-triangles-fascia-nodes.html",
     status: "complete",
   },
+  {
+    id: "larynx-airway-anatomy",
+    title: "Larynx & Airway Anatomy",
+    subtitle: "Cartilages, intrinsic muscles, nerve supply, trachea and surgical airway landmarks",
+    pillar: "anatomy",
+    tags: ["larynx", "airway", "tracheostomy", "cricothyroidotomy", "head and neck"],
+    notionUrl: "",
+    path: "/guides/anatomy/larynx-airway-anatomy.html",
+    status: "complete",
+  },
 
   // ── FOUNDATIONS: PHYSIOLOGY ───────────────────────────────────────
   {
