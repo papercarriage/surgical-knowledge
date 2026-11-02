@@ -358,6 +358,16 @@ const GUIDES = [
     path: "/guides/conditions/thyroid-nodule-goitre.html",
     status: "complete",
   },
+  {
+    id: "thyroid-cancer",
+    title: "Thyroid Cancer",
+    subtitle: "Papillary, follicular, medullary and anaplastic: pathology, spread, surgery and follow-up",
+    pillar: "conditions",
+    tags: ["thyroid cancer", "papillary", "follicular", "medullary", "anaplastic", "head and neck"],
+    notionUrl: "",
+    path: "/guides/conditions/thyroid-cancer.html",
+    status: "complete",
+  },
 
   // ── PROCEDURES ────────────────────────────────────────────────────
   {
