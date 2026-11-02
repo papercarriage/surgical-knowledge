@@ -170,6 +170,16 @@ const GUIDES = [
     path: "/guides/physiology/fluid-electrolytes.html",
     status: "planned",
   },
+  {
+    id: "calcium-pth-physiology",
+    title: "Calcium & PTH Physiology",
+    subtitle: "Calcium homeostasis, PTH, vitamin D, hyper- and hypocalcaemia biochemical patterns",
+    pillar: "physiology",
+    tags: ["calcium", "PTH", "vitamin D", "hypocalcaemia", "hypercalcaemia", "head and neck"],
+    notionUrl: "",
+    path: "/guides/physiology/calcium-pth-physiology.html",
+    status: "complete",
+  },
 
   // ── FOUNDATIONS: MICROBIOLOGY ─────────────────────────────────────
   {
