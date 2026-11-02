@@ -118,6 +118,16 @@ const GUIDES = [
     path: "/guides/anatomy/thyroid-parathyroid-anatomy.html",
     status: "complete",
   },
+  {
+    id: "neck-triangles-fascia-nodes",
+    title: "Neck Triangles, Fascia & Nodal Levels",
+    subtitle: "Triangles, deep cervical fascia and spaces, nodal levels I–VII, neck dissection",
+    pillar: "anatomy",
+    tags: ["head and neck", "neck dissection", "lymph nodes", "fascia", "Ludwig's angina"],
+    notionUrl: "",
+    path: "/guides/anatomy/neck-triangles-fascia-nodes.html",
+    status: "complete",
+  },
 
   // ── FOUNDATIONS: PHYSIOLOGY ───────────────────────────────────────
   {
