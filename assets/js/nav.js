@@ -368,6 +368,16 @@ const GUIDES = [
     path: "/guides/conditions/thyroid-cancer.html",
     status: "complete",
   },
+  {
+    id: "hyperthyroidism",
+    title: "Hyperthyroidism",
+    subtitle: "Causes, Graves' disease, drug and radioiodine therapy, surgical indications, thyroid storm",
+    pillar: "conditions",
+    tags: ["hyperthyroidism", "Graves", "thyrotoxicosis", "thyroid storm", "head and neck"],
+    notionUrl: "",
+    path: "/guides/conditions/hyperthyroidism.html",
+    status: "complete",
+  },
 
   // ── PROCEDURES ────────────────────────────────────────────────────
   {
