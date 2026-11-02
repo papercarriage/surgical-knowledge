@@ -348,6 +348,16 @@ const GUIDES = [
     path: "/guides/conditions/pagets-disease-nipple.html",
     status: "complete",
   },
+  {
+    id: "thyroid-nodule-goitre",
+    title: "Thyroid Nodule & Goitre",
+    subtitle: "Nodule work-up, BTA Thy categories, multinodular and retrosternal goitre",
+    pillar: "conditions",
+    tags: ["thyroid nodule", "goitre", "FNAC", "Thy classification", "head and neck"],
+    notionUrl: "",
+    path: "/guides/conditions/thyroid-nodule-goitre.html",
+    status: "complete",
+  },
 
   // ── PROCEDURES ────────────────────────────────────────────────────
   {
