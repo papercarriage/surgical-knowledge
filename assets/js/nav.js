@@ -500,6 +500,16 @@ const GUIDES = [
     path: "/guides/procedures/breast-reconstruction.html",
     status: "complete",
   },
+  {
+    id: "thyroidectomy",
+    title: "Thyroidectomy",
+    subtitle: "Indications, consent, set-up, operative steps, nerve monitoring and complication management",
+    pillar: "procedures",
+    tags: ["thyroidectomy", "lobectomy", "theatre", "RLN", "IONM", "head and neck"],
+    notionUrl: "",
+    path: "/guides/procedures/thyroidectomy.html",
+    status: "complete",
+  },
 ];
 
 // ── PILLAR METADATA ───────────────────────────────────────────────────────────
