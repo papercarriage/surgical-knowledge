@@ -378,6 +378,16 @@ const GUIDES = [
     path: "/guides/conditions/hyperthyroidism.html",
     status: "complete",
   },
+  {
+    id: "primary-hyperparathyroidism",
+    title: "Primary Hyperparathyroidism",
+    subtitle: "Pathology, diagnosis, localisation, indications for surgery, operative strategy",
+    pillar: "conditions",
+    tags: ["hyperparathyroidism", "parathyroidectomy", "hypercalcaemia", "MEN1", "head and neck"],
+    notionUrl: "",
+    path: "/guides/conditions/primary-hyperparathyroidism.html",
+    status: "complete",
+  },
 
   // ── PROCEDURES ────────────────────────────────────────────────────
   {
