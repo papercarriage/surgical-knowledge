@@ -403,12 +403,12 @@ const GUIDES = [
   {
     id: "appendicectomy",
     title: "Appendicectomy",
-    subtitle: "Open vs laparoscopic, stump management, complications",
+    subtitle: "Anatomy, diagnosis, laparoscopic and open technique, curveballs, complications and evidence",
     pillar: "procedures",
-    tags: ["emergency", "laparoscopic", "colorectal"],
+    tags: ["appendicectomy", "appendicitis", "laparoscopic", "acute abdomen", "general surgery"],
     notionUrl: "",
     path: "/guides/procedures/appendicectomy.html",
-    status: "planned",
+    status: "complete",
   },
   {
     id: "anterior-resection",
